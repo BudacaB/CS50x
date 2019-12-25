@@ -19,4 +19,10 @@ Phone book algorithm (pseudo-code):
 3 - boolean expressions <br>
 4 - loops <br>
 
+plus<br>
+
+- variables - store info<br>
+- threads - run multiple things in paralel<br>
+- events - intercommunication - broadcast / listen<br>
+
 ---
