@@ -1,4 +1,4 @@
-Phone book algorithm (pseudo-code):
+### Phone book algorithm (pseudo-code):
 
 0. pick up<sup>1</sup> phone book
 1. open<sup>1</sup> to middle of phonebook
