@@ -1,9 +1,9 @@
 ### C language
 
 ```
-include <stdio.h>
+#include <stdio.h>
 
-void main() {
+int main(void) {
     printf("hello, world")
 }
 ```
