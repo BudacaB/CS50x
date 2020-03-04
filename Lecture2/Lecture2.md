@@ -88,3 +88,6 @@ string
 %li - long
 
 ---
+while ... do -> checks condition, then executes
+
+do ... while -> executes, then checks condition
