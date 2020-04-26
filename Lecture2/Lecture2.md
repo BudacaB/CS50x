@@ -1,4 +1,4 @@
-### C language
+## C language
 
 ```
 #include <stdio.h>
@@ -91,3 +91,7 @@ string
 while ... do -> checks condition, then executes
 
 do ... while -> executes, then checks condition
+
+---
+
+unsigned qualifier - sacrifice negative values and add that range to positive
