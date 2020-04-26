@@ -6,3 +6,12 @@
 - compiling - converts code to assembly
 - assembling - converts assembly code to source code (0 and 1)
 - linking - combines all the files into the final output/executable file
+
+---
+
+### Cryptography
+
+- Scrambling info to keep it private
+- Input is plain text
+- Output is cyphertext
+- A key is needed for decryption
