@@ -15,3 +15,12 @@
 - Input is plain text
 - Output is cyphertext
 - A key is needed for decryption
+
+---
+
+In C
+
+    - variables are passed by value (e.g. a function gets a working replica of the variable)
+    - arrays are passed by references (e.g. the programs 'trusts' a function not to break the actual array)
+
+---
