@@ -1,97 +1,26 @@
-## C language
+## Arrays (C programming)
 
-```
-#include <stdio.h>
+### Compilation steps
 
-int main(void) {
-    printf("hello, world")
-}
-```
-
----
-
-```
-#include <cs50.h>
-#include <stdio.h>
-
-int main(void)
-{
-    string answer = get_string(What's your name?\n");
-    printf("Hello, %s\n", answer)
-}
-
-```
+- preprocessing - imports needed code from the used libraries (header files) - e.g. stdio.h
+- compiling - converts code to assembly
+- assembling - converts assembly code to source code (0 and 1)
+- linking - combines all the files into the final output/executable file
 
 ---
 
-```
-if (x < y)
-{
-    printf("x is less than y\n");
-}
-else if (x > y)
-{
-    printf ("x is greater than y\n");
-}
-else
-{
-    printf("x is equal to y\n");
-}
-```
+### Cryptography
+
+- Scrambling info to keep it private
+- Input is plain text
+- Output is cyphertext
+- A key is needed for decryption
 
 ---
 
-```
-int i = 0;
-while (i < 50)
-{
-    printf("hello, world\n");
-    i++;
-}
-```
+In C
+
+    - variables are passed by value (e.g. a function gets a working replica of the variable)
+    - arrays are passed by references (e.g. the programs 'trusts' a function not to break the actual array)
 
 ---
-
-```
-for (int i = 0; i < 50; i++)
-{
-    printf("hello, world\n");
-}
-```
-
----
-
-bool
-
-char
-
-double
-
-float
-
-int
-
-long
-
-string
-
----
-
-%s - string
-
-%c - char
-
-%f - float, double
-
-%i - int
-
-%li - long
-
----
-while ... do -> checks condition, then executes
-
-do ... while -> executes, then checks condition
-
----
-
-unsigned qualifier - sacrifice negative values and add that range to positive

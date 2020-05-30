@@ -1,28 +1,97 @@
-### Phone book algorithm (pseudo-code):
+## C language
 
-0. pick up<sup>1</sup> phone book
-1. open<sup>1</sup> to middle of phonebook
-1. look at<sup>1</sup> names
-1. if<sup>2</sup> Smith is among names<sup>3</sup>
-1. &nbsp;&nbsp;&nbsp;call<sup>1</sup> Mike
-1. else if<sup>2</sup> Smith is earlier in the book<sup>3</sup>
-1. &nbsp;&nbsp;&nbsp;open to<sup>1</sup> middle of left half of book
-1. &nbsp;&nbsp;&nbsp;go back to step 2<sup>4</sup>
-1. else if<sup>2</sup> Smith is later in book<sup>3</sup>
-1. &nbsp;&nbsp;&nbsp;open to<sup>1</sup> middle of right half of book
-1. &nbsp;&nbsp;&nbsp;go back to step 2<sup>4</sup>
-1. else<sup>2</sup>
-1. &nbsp;&nbsp;&nbsp;quit<sup>1</sup>
+```
+#include <stdio.h>
 
-1 - verbs -> functions <br>
-2 - conditions -> branches <br>
-3 - boolean expressions <br>
-4 - loops <br>
-
-plus<br>
-
-- variables - store info<br>
-- threads - run multiple things in paralel<br>
-- events - intercommunication - broadcast / listen<br>
+int main(void) {
+    printf("hello, world")
+}
+```
 
 ---
+
+```
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    string answer = get_string(What's your name?\n");
+    printf("Hello, %s\n", answer)
+}
+
+```
+
+---
+
+```
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf ("x is greater than y\n");
+}
+else
+{
+    printf("x is equal to y\n");
+}
+```
+
+---
+
+```
+int i = 0;
+while (i < 50)
+{
+    printf("hello, world\n");
+    i++;
+}
+```
+
+---
+
+```
+for (int i = 0; i < 50; i++)
+{
+    printf("hello, world\n");
+}
+```
+
+---
+
+bool
+
+char
+
+double
+
+float
+
+int
+
+long
+
+string
+
+---
+
+%s - string
+
+%c - char
+
+%f - float, double
+
+%i - int
+
+%li - long
+
+---
+while ... do -> checks condition, then executes
+
+do ... while -> executes, then checks condition
+
+---
+
+unsigned qualifier - sacrifice negative values and add that range to positive
