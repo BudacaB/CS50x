@@ -2,6 +2,8 @@
 
 2 factors - correctness & design (is it efficient?)
 
+### Searching
+
 #### Linear search
 - unsorted array - from start to finish (in a line)
 
@@ -27,6 +29,7 @@ else if 50 > middle item
     search right half
 ```
 ---
+---
 
 ### Big O notation ('on the order of')
 
@@ -42,7 +45,7 @@ e.g.:
 
 The list:
 
-- O(n<sup>2</sup>)
+- O(n<sup>2</sup>) - bubble sort, selection sort
 - O(n log n)
 - O(n) - linear search
 - O(log n) - binary search
@@ -58,8 +61,54 @@ O - upper bound of how much time an algorithm can take (worst case scenario)
 
 The list:
 
-- Ω(n<sup>2</sup>)
+- Ω(n<sup>2</sup>) - <em>bubble sort</em>, selection sort
 - Ω(n log n)
-- Ω(n)
+- Ω(n) - (bubble sort - after tweak)
 - Ω(log n)
 - Ω(1) - linear search, binary search
+---
+---
+
+### Sorting
+
+#### Bubble sort
+
+n - 1 passes required
+
+
+(n - 1) + (n - 2) + ... + 1 = n(n - 1) / 2
+
+n(n - 1) / 2 - total number of comparisons
+
+```
+repeat n-1 times
+(repeat until no swaps) - improvement
+    for i from 0 to n-2
+        if i'th and i+1'th elements are out of  order
+            swap them
+```
+O((n-1) x (n-2)) => O(n<sup>2</sup> -3n + 2) => O(n<sup>2</sup>) 
+
+Ω(n<sup>2</sup>) - it will carry out the steps regardless
+
+---
+
+#### Selection sort
+
+```
+for i from 0 to n-1
+    find smallest item between i'th item and last item
+    swap the smallest item with the i'th item
+```
+n + (n - 1) + (n - 2) + ... + 1 = n(n + 1) / 2 => (n<sup>2</sup> + n) / 2 => O (n<sup>2</sup>)
+
+Ω(n<sup>2</sup>)
+
+---
+---
+
+### Recursion
+
+- Code that calls itself
+- A function 'search' - is recursive if it calls itself
+
