@@ -46,7 +46,7 @@ e.g.:
 The list:
 
 - O(n<sup>2</sup>) - bubble sort, selection sort
-- O(n log n)
+- O(n log n) - merge sort
 - O(n) - linear search
 - O(log n) - binary search
 - O(1)
@@ -62,10 +62,25 @@ O - upper bound of how much time an algorithm can take (worst case scenario)
 The list:
 
 - Ω(n<sup>2</sup>) - <em>bubble sort</em>, selection sort
-- Ω(n log n)
+- Ω(n log n) - merge sort
 - Ω(n) - (bubble sort - after tweak)
 - Ω(log n)
 - Ω(1) - linear search, binary search
+
+---
+
+### Θ - theta
+
+- If O and Ω are identical
+
+The list:
+
+- Θ(n<sup>2</sup>) - selection sort
+- Θ(n log n) - merge sort
+- Θ(n)
+- Θ(log n)
+- Θ(1)
+
 ---
 ---
 
@@ -105,10 +120,35 @@ n + (n - 1) + (n - 2) + ... + 1 = n(n + 1) / 2 => (n<sup>2</sup> + n) / 2 => O (
 Ω(n<sup>2</sup>)
 
 ---
+
+#### Merge sort
+
+```
+if only one item
+    return
+else
+    sort left half of items
+    sort right half of items
+    merge sorted halves
+```
+O(n log n)
+
+---
 ---
 
 ### Recursion
 
 - Code that calls itself
 - A function 'search' - is recursive if it calls itself
+
+---
+
+### Call stack
+
+- When you call a function, the system sets aside space in memory for that function to do its necessary work.
+    - We frequently call such chunks of memory <strong>stack frames</strong> or <strong>function frames</strong>
+
+- More than one function's stack frame may exist in momery at a given time. If main() calls move(), which then calls direction(), all three functions have open frames (but only one is active).
+
+- When a function finishes its work, its frame is <strong>popped</strong> off of the stack, and the frame immediately and the frame immediately below it becomes the new, active, function on top of the stack. This function picks up immediately where it left off.
 
