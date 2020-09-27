@@ -32,6 +32,30 @@ F - F
 - F F => 255
 - RGB is hexadecilam, e.g. 0 0 0 0 0 0 ; F F 0 0 0 0 => a lot of red, no green, no blue ; F F F F F F => white
 
+Hexadecimal makes mapping easy because a group of 4 binary digits (bits) has 16 different combinations, and each of those combinations maps to a single hexadecimal digit
+
+e.g.
+
+Decimal  Binary  Hexadecimal
+
+...
+
+0 ---------- 0110 - 0x6
+
+15 --------- 1111 - 0xF
+
+- Just like binary has place values - powers of 2 (1, 2, 4, 8 ...) and decimal does too - powers of 10 (1, 10, 100, 1000, ...), so does hexadecimal - powers of 16
+
+    16<sup>2</sup> 16<sup>1</sup> 16<sup>0</sup>
+
+    256 16 1
+
+    0x  3   9  7
+
+    0x  A   D  C
+
+    To convert a binary number into hexadecimal, group 4 binary digits (bits) together from right to left; pad the leftmost group with extra 0 bits at the front if necessary
+
 ---
 
 #### Convention
@@ -69,3 +93,60 @@ string s = "EMMA"; == char *s = "EMMA";
  ```
  typedef char *string;
  ```
+
+ ---
+
+ ```
+ void swap(int a, int b)
+ {
+     int tmp = a;
+     a = b;
+     b = tmp;
+ }
+
+```
+
+---
+
+#### Memory allocation:
+
+machine code
+
+globals
+
+heap (this is where malloc takes memory from)
+
+  v
+
+<br>
+<br>
+
+  ^
+  
+stack (this is where variables are stored when functions are called)
+
+When they collide (buffer overflows):
+- heap overflow
+- stack overflow
+
+<br>
+
+#### C Program (memorcy.c)
+
+
+swap (storing a, b and tmp)
+
+main (stack frame for argv, argc, x, y)
+
+
+When swap() is done, the operation is complete, a and b have been swapped, but the stack frame is remove and x and y remain unchanged in the main() stack frame
+
+We can use the pointers and directly changed the variables at their location
+
+```
+int tmp = *a;
+*a = *b;
+b* = tmp;
+```
+
+---
