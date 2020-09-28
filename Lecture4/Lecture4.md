@@ -68,7 +68,7 @@ Memory addresses use this convetion -> 0x0 0x1 ... 0x1F etc.
 
 & - AddressOf operator (what's the address?)
 
-\* - operator for 'go to the address'
+\* - operator for 'go to the address' - dereference operator
 
 ---
 
@@ -150,3 +150,51 @@ b* = tmp;
 ```
 
 ---
+
+#### Pointers
+
+- Pointers are just addresses of locations in memory
+
+- Pointers are useful for passing data / passing data between function
+
+  - we can pass data by value  - we only pass a copy of that data
+  - using pointers we can pass the actual variable itself -> a change in one function can impact what happens in a different function
+
+Data types:
+- int - 4 bytes
+- char - 1 byte
+- float - 4 bytes
+- double - 8 bytes
+- long long - 8 bytes
+- char* or for any datatype - 4 or 8 (depending on the system architecture)
+
+```
+int k;
+k = 5;
+int *pk; // point to an int
+pk = &k; // this is the int address to point to
+```
+
+- A pointer is a data item whose:
+  - value is a memory address
+  - type describes the data located at that memory address
+
+- Pointers allows data structures and/or variables to be shared among functions
+
+- Pointers make a computer environment more like the real world
+
+- The simplest pointer available in C is the NULL pointer - points to nothing
+  - when you create a pointer and you don't set its value immediately, you should always set the value of the pointer to NULL
+  - you can check wheter a pointer is NULL using the equality operation (==)
+
+- Another easy way to createa a pointer is to simply extract the address of an already existing variable. We can do this with the address extraction operatpr (&)
+  - if x is an int-type variable, then &x is a pointer-to-int whose value is the address of x
+  - if arr is an array of doubles, then &arr[i] is a pointer-to-double whose value is the address of the i<sup>th</sup> element of arr -> an array's name then, is actually just a pointer to its first element
+
+- The main purpose of a pointer is to allow us to modify or inspect the location to which it points - we do this by <em>dereferencing</em> the pointer
+  - if we have a pointer-to-char called pc, then *pc is the data that lives at the memory address stored inside the pc variable
+  - if you try to dereference a pointer whose value is NULL -> segmentation fault (good behavior)
+
+- To create multiple pointers on the same line, each needs the '*' e.g. int *pa, *pb;
+
+
