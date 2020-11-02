@@ -71,3 +71,6 @@ n->next = list; // new node points at what list points at, i.e. 2
 list = n; // the list points at n
 
 ```
+
+- linked lists can allocate elements as they go and change where they point to -> a more dynamic insertion ability
+- linked lists lose random access ability -> search is O(n) and also insertion is O(n)
