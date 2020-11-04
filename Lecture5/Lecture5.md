@@ -29,7 +29,7 @@ Three important tools:
 
 - (arrays need to be reallocated if changed) - insertion is O(n) / search is O(log n)
 - (arrays have random access - indexed)
-- (sorted arrays work with binary searcg)
+- (sorted arrays work with binary search)
 
 
 #### Linked lists
@@ -74,3 +74,54 @@ list = n; // the list points at n
 
 - linked lists can allocate elements as they go and change where they point to -> a more dynamic insertion ability
 - linked lists lose random access ability -> search is O(n) and also insertion is O(n)
+
+---
+
+#### Trees
+
+##### Binary search tree
+
+```
+typedef struct node
+{
+    int number;
+    struct node *left;
+    struct node *right;
+}
+node;
+```
+
+- binary - each node has a max of 2 children
+- the tree is recursively sorted -> the left node is smaller, the right node is greater
+- binary search and recursion are doable / useful
+
+```
+// looking for 50
+bool search(node *tree)
+{
+    if (tree == NULL)
+    {
+        return false;
+    }
+    else if (50 < tree->number)
+    {
+        search(tree->left);
+    }
+    else if (50 > tree->unmber)
+    {
+        search(tree->right);
+    }
+    else
+    {
+        return true;
+    }
+}
+```
+
+- O(log n) -> search & insert
+
+---
+
+#### Hash table
+
+- array + linked lists inside it
