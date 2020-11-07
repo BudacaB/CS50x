@@ -125,3 +125,20 @@ bool search(node *tree)
 #### Hash table
 
 - array + linked lists inside it
+- each position in the array can contain a linked listed - e.g. an array for the alphabet and each letter is an index in the array, all names starting with that letter form a linked list in that 'bucket' / array position
+- hash function -> a function / algorithm that decides where values go in the hash table
+- e.g. 'Albus' -> hash function -> 0 - outputs index 0 for the first letter for 'A' etc.
+- a collision is when two names start with the same letter - this is where the linked list inside the array comes in - in CS one must always think of all the extreme corner cases - e.g. all names start with the same one letter etc.
+- one way to decrease collisions is to create more buckets by looking at the first two letters - e.g for 'H' - have 'Ha', 'He' etc. buckets ; or 3, or 4 etc. letters -> helps going towards search constant time O(1)
+- tradeoff - still might get O(n) while also using a huge array taking a lot of memory
+- ideal hash function - an algorithm that could assure 0 collisions and thus O(1) time
+- most computer systems give you best effort - on average it's less than O(n) usually
+
+---
+
+#### Tries
+
+- a trie sacrifices one resource to gain another
+- takes up much more memory but does give O(1)
+- it is a tree with arrays for nodes
+- O(1) - search and insertion
