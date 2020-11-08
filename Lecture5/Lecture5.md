@@ -141,4 +141,25 @@ bool search(node *tree)
 - a trie sacrifices one resource to gain another
 - takes up much more memory but does give O(1)
 - it is a tree with arrays for nodes
-- O(1) - search and insertion
+- O(1) constant time - search and insertion
+
+---
+
+#### Abstract data structures
+
+- using arrays, linked lists, trees and hash tables as building blocks to create other custom data structures for different problems
+
+#### Queues
+
+- FIFO - first in first out
+- enqueue - get in line / dequeue - get out of line
+
+#### Stacks
+
+- LIFO - last in first out
+- push - add to stack / pop - remove from stack
+
+#### Dictionaries
+
+- abstraction on top of a hash table
+- key / value pairs
