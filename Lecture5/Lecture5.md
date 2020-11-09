@@ -163,3 +163,43 @@ bool search(node *tree)
 
 - abstraction on top of a hash table
 - key / value pairs
+
+---
+---
+
+Data structures can boil down to 4 main basic ideas, four different ways to store sets of data
+- arrays
+- linked lists
+- hash tables
+- tries
+
+#### Data structures summary
+
+- arrays
+    - insertion is bad - lots of shifting to fit an element in the middle
+    - deletion is bad - lots of shifting after removing an element
+    - lookup is great - random access, constant time
+    - relatively easy to sort
+    - relatively small size wise
+    - stuck with a fixed size - no flexibility
+
+- linked lists
+    - insertion is easy - just tack onto the front
+    - deletion is easy once you find the element
+    - lookup is bad - have to rely on linear search
+    - relatively difficuly to sort - unless you're willing to compromise on super-fast insertion and instead sort as you construct
+    - relative small size-wise (not as small as arrays)
+
+- hash tables
+    - insertion is a two-step process - hash, then add
+    - deletion is easy - once you find the element
+    - lookup is on average better than with linked lists because you have the benefit of a real-world constant factor
+    - not an ideal data structure if sorting is the goal - just use an array
+    - can run the gamut of size
+
+- tries
+    - insertion is complex - a lot of dynamic memory allocation, but gets easier as you go
+    - deletion is easy - just free a node
+    - lookup is fast - not quite as fast as an array, but almost
+    - already sorted - sorts as you build in almost all situations
+    - rapidly becomes huge, even with very little data present, not great if space is at a premium
