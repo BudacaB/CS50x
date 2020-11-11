@@ -203,3 +203,14 @@ Data structures can boil down to 4 main basic ideas, four different ways to stor
     - lookup is fast - not quite as fast as an array, but almost
     - already sorted - sorts as you build in almost all situations
     - rapidly becomes huge, even with very little data present, not great if space is at a premium
+
+    ---
+    ---
+
+#### Singly-linked lists
+
+- so far in the course, we've only had one kind of data structure for representing collections of like values
+    - structs, recall, give us 'containers' for holding variables of different data types, typically
+- arrays are great for element lookup, but unless we want to insert at the very end of the array, inserting elements is quite costly - remember insertion sort?
+- arrays also suffer from a great inflexibility - what happens if we need a larger array than we thought?
+- through clever use of pointers, dynamic memory allocation, and structs, we can put the pieces together to develop a new kind of data structure that gives us the ability to grow and shrink a collection of like values to fit our needs
