@@ -214,3 +214,75 @@ Data structures can boil down to 4 main basic ideas, four different ways to stor
 - arrays are great for element lookup, but unless we want to insert at the very end of the array, inserting elements is quite costly - remember insertion sort?
 - arrays also suffer from a great inflexibility - what happens if we need a larger array than we thought?
 - through clever use of pointers, dynamic memory allocation, and structs, we can put the pieces together to develop a new kind of data structure that gives us the ability to grow and shrink a collection of like values to fit our needs
+- we call this combination of elements, when used in this way, a **linked list**
+- a linked list **node** is a special kind of struct with two members:
+    - data of some data type (int, char, float...)
+    - a pointer to another node of the same type
+- in this way, a set of nodes together can be thought of as forming a chain of elements that we can follow from beginning to end
+
+```
+typedef struct sllist
+{
+    VALUE val;
+    struct sllist* next;
+}
+sllnode;
+```
+
+- in order to work with linked lists effectively, there are a number of operations that we need to understand:
+    1. Create a linked list when it doesn't really exist
+    2. Search through a linked list to find an element
+    3. Insert a new node into the linked list
+    4. Delete a single element from a linked list
+    5. Delete an entire linked list
+
+1. Create a linked list
+
+```
+sllnode* create(VALUE val);
+```
+
+- steps involved:
+    1. Dynamycally allocate space for a new sllnode
+    2. Check to make sure we didn't run out of memory
+    3. Initialize the node's 'val' field
+    4. Initialize the node's 'next' field
+    5. Return a pointer to the newly created sllnode
+
+2. Search through a linked list to find an element
+
+```
+bool find(sllnode* head, VALUE val);
+```
+
+- steps involved:
+    1. Create a traversal pointer pointing to the list's head
+    2. If the current node's 'val' field is what we're looking for, report success
+    3. If not, set the traversal pointer to the next pointer in the list and to back to step b
+    4. If you've reached the end of the list, report failure
+
+3. Insert a new node into the linked list
+
+```
+sllnode* insert(sllnode* head, value val);
+```
+
+- steps involved:
+    1. Dynamycally allocate space for a new sllnode
+    2. Check to make sure we didn't run out of memory
+    3. Populate and insert the node at the beginning of the linked list - always make sure to first connect the new node to the current head and then move the pointer to the head
+    4. Return a pointer to the new head of the linked list
+
+4. Delete an entire linked list
+
+```
+void destroy(sllnode* head);
+```
+
+- steps involved:
+    1. If you've reached a null pointer, stop
+    2. Delete the rest of the list
+    3. Free the current node
+
+---
+
