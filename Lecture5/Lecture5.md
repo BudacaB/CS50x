@@ -286,3 +286,11 @@ void destroy(sllnode* head);
 
 ---
 
+#### Hash tables
+
+- hash tables combine the random access of an array with the dynamism of a linked list
+- this means (assuming we define our hash table well):
+    - insertion can start to tend toward O(1)
+    - deletion can start to tend toward O(1)
+    - lookup can start to tend toward O(1)
+- we're gaining the advantages of both types of data structure, while mitigating the disadvantages
