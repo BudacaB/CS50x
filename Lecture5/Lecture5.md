@@ -294,3 +294,5 @@ void destroy(sllnode* head);
     - deletion can start to tend toward O(1)
     - lookup can start to tend toward O(1)
 - we're gaining the advantages of both types of data structure, while mitigating the disadvantages
+- to get this performance upgrade, we create a new structure whereby when we insert data into the structure, the data itself gives us a clue about where we will find the data, should we need to later look it up
+- the trade off is that hash tables are not great at ordering or soring data, but if we don't care about that, then we're good to go
