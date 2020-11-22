@@ -296,3 +296,42 @@ void destroy(sllnode* head);
 - we're gaining the advantages of both types of data structure, while mitigating the disadvantages
 - to get this performance upgrade, we create a new structure whereby when we insert data into the structure, the data itself gives us a clue about where we will find the data, should we need to later look it up
 - the trade off is that hash tables are not great at ordering or soring data, but if we don't care about that, then we're good to go
+- a hash table amounts to a combination of two things with which we're quite familiar:
+    - first, a hash function, which returns a nonnegative integer value called a **hash code**
+    - second, an array capable of storing data of the type we wish to place into the data structure
+- the idea is what we run our data through the hash function, and then store the data in the element of the array represented by the returned hash code
+- how to define a good hash function? -> really no limit to the number of possible hash functions
+- a good hash function should:
+    - use only the data being hashed
+    - use all of the data being hashed
+    - be deterministic
+    - uniformly distribute data
+    - generate very different hash codes for very similar data
+
+```
+// has function example
+unsigned int hash(char* str)
+{
+    int sum = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        sum +=str[j];
+    }
+    return sum % HASH_MAX;
+}
+```
+
+- a **collision** occurs when two pieces of data, when run through the hash function, yield the same hash code
+- presumably we want to store both pieces of data in the hash table, so we shouldn't simply overwrite the data that happenend to be placed in there first
+- we need to find a way to get both elements into the hash table while trying to preserve quick insertion and lookup
+- resolving collisions: **linear probing**
+- in this method, if we have a collision, we try to place the data in the next consecutive element in the array (wrapping around to the beginning if necessary) until we find a vacancy
+- that way, if we don't find what we're looking for in the first location, at least hopefully the element is somewhere nearby
+- linear probing is subject to a problem called **clustering**; once there's a miss, two adjacent cells will contain data, making it more likely in the future the cluster will grow
+- even if we switch to another probing technique, we're still limited; we can only store as much data as we have locations in our array
+- resolving collisions: **chaining**
+- what is instead of each element of the array holding just one piece of data, it held multiple pieces of data?
+- if each element of the array is a pointer to the head of a linked list, then multiple pieces of data can yield the same hash code and we'll be able to store it all
+- we've eliminated clustering
+- we know from experience with linked lists that insertion (and creation, if necessary) into a linked list is a 0(1) operation
+- for lookup, we only need to search through what is hopefully a small list, since we're distributing what would otherwise be one huge list across n lists
