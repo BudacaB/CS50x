@@ -335,3 +335,33 @@ unsigned int hash(char* str)
 - we've eliminated clustering
 - we know from experience with linked lists that insertion (and creation, if necessary) into a linked list is a 0(1) operation
 - for lookup, we only need to search through what is hopefully a small list, since we're distributing what would otherwise be one huge list across n lists
+
+---
+
+#### Tries
+
+- we have seen a few data structures that handle the mapping of key-value pairs:
+    - arrays: the key is the element index, the value is the data at that location
+    - hash tables: the key is the hash code of the data, the value is a linked list of data hashing to that hash code
+- what about a slightly different kind of data structure where the key is guaranteed to be unique, and the value could be as simple as a Boolean that tells you whether the data exists in the structure
+- tries combine structures and pointers together to store data in an interesting way
+- the data to be searched for in the trie is now a roadmap
+    - if you can follow the map from beginning to end, the data exists in the trie
+    - if you can't, it doesn't
+- unlike with a hash table, there are no collisions, and no two pieces of data (unless the are identical) have the same path
+
+Example:
+
+- let's map key-value pairs where the keys are four-digit years (YYYY) and the values are names of the universities founded during those years
+- in a trie, the paths from a central **root** node to a **leaf** node (where the school names would be), would be labeled with digits of the year
+- each node on the path from root to leaf could have 10 pointers emanating from it, one for each digit
+- to insert an element into the trie, simply build the correct path from the root to the leaf
+
+```
+typedef struct _trie
+{
+    char university[20];
+    struct _trie* paths[10];
+}
+trie;
+```
