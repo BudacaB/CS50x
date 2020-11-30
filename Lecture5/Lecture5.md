@@ -348,7 +348,7 @@ unsigned int hash(char* str)
 - the data to be searched for in the trie is now a roadmap
     - if you can follow the map from beginning to end, the data exists in the trie
     - if you can't, it doesn't
-- unlike with a hash table, there are no collisions, and no two pieces of data (unless the are identical) have the same path
+- unlike with a hash table, there are no collisions, and no two pieces of data (unless they are identical) have the same path
 
 Example:
 
@@ -365,3 +365,44 @@ typedef struct _trie
 }
 trie;
 ```
+
+- to search for an element in the trie, use successive digits to navigate from the root, and if you can make it to the end without hitting a dead end (a NULL pointer), you've found it
+- tries approach constant time insertion and lookup - the tradeoff is high memory usage
+
+--- 
+
+- data structures boild down to four main types:
+    - arrays
+    - linked lists
+    - hash tables
+    - tries
+- there are even some variations on these (trees and heaps, quite similar to tries, queues and stacks, quite similar to arrays or linked lists, etc.) but this will generally cover most of what we're looking at in C
+
+- arrays
+    - insertion is bad - lots of shifting to fit an element in the middle
+    - deletion is bad - lots of shifting after removing an element
+    - lookup is great - random access, constant time
+    - relatively easy to sort
+    - relatively small size-wise
+    - stuck with a fixed size, no flexibility
+
+- linked list
+    - insertion is easy - just tack onto the front
+    - deletion is easy - once you find the element
+    - lookup is bad - have to rely on linear search
+    - relatively difficult to sort - unless you're willing to compromise on super-fast insertion and instead sort as you construct
+    - relatively small size-wise (not as small as arrays)
+
+- hash tables
+    - insertion is a two-step process - hash, then add
+    - deletion is easy - once you find the element
+    - lookup is on average better than with linked lists because you have the benefit of a real-world constant factor
+    - not an ideal data structure is sorting is the goal - just use an array
+    - can run the gamut of size
+
+- tries
+    - insertion is complex - a lot of dynamic memory allocation, but gets easier as you go
+    - deletion is easy - just free a node
+    - lookup is fast - not quite as fast as an array but almost
+    - already sorted - sorts as you build in almost all situations
+    - rapidly becomes huge, even with very little data present, not great if space is at a premium
