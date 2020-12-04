@@ -1,6 +1,8 @@
+import re
+
 s = input("Do you agree?\n")
 
-if s.lower() in ["y", "yes"]:
+if re.search("^y(es)?$", s, re.IGNORECASE):
     print("Agreed")
-elif s.lower() in ["", "no"]:
+elif re.search("^n(o)?$", s, re.IGNORECASE):
     print("Not agreed")

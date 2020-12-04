@@ -63,3 +63,14 @@ for i in range(3):
     - tuple - sequence of immutable values
     - dict - collection of key/value pairs (abstraction of the C hash table)
     - set - collection of unique values
+
+---
+
+#### Regular Expressions
+
+- . any character
+- .* 0 or more characters
+- .+ one or more characters
+- ? optional
+- ^ start of input
+- $ end of input

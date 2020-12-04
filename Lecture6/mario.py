@@ -1,3 +1,4 @@
-print("?" * 4)
-print()
-print("#\n" * 3, end="")
+for i in range(3):
+    for j in range(3):
+        print("#", end="")
+    print()
