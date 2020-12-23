@@ -1,0 +1,3 @@
+## Information
+
+input -> algorithms -> output
