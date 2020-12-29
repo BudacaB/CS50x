@@ -6,8 +6,7 @@ button.onclick = function() {
         var msg = new SpeechSynthesisUtterance(data.text);
         synth.speak(msg);
         var r = setInterval(function () {
-                if (!synth.speaking) clearInterval(r);
-                else synth.resume();
-            }, 14000);
+            synth.resume();
+        }, 14000);
     });
 };
