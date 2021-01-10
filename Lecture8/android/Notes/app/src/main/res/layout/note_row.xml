@@ -3,7 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/note_row">
+    android:id="@+id/note_row"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="10dp"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <TextView
         android:layout_width="match_parent"
