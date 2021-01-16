@@ -11,6 +11,6 @@ end
 
 function love.draw()
     -- font size is 12
-    love.graphics.printf(("Hello Pong!", 0, WINDOW_HEIGHT / 2 - 6, WINDOW_WIDTH, 'center'))
+    love.graphics.printf("Hello Pong!", 0, WINDOW_HEIGHT / 2 - 6, WINDOW_WIDTH, 'center')
 
 end
