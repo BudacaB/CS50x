@@ -23,9 +23,9 @@ function love.load()
     player1Score = 0
     player2Score = 0
 
-    paddle1 = Paddle(5, 20, 5, 20)
+    paddle1 = Paddle(10, 30, 5, 20)
     paddle2 = Paddle(VIRTUAL_WIDTH - 10, VIRTUAL_HEIGHT - 30, 5, 20)
-    ball = Ball(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 5, 5)
+    ball = Ball(VIRTUAL_WIDTH / 2 - 2, VIRTUAL_HEIGHT / 2 - 2, 4, 4)
 
     ballX = VIRTUAL_WIDTH / 2 - 2
     ballY = VIRTUAL_HEIGHT / 2 - 2
@@ -43,6 +43,26 @@ function love.load()
 end
 
 function love.update(dt)
+
+    if ball:collides(paddle1) then
+        -- deflect ball to the right
+        ball.dx = -ball.dx
+    end
+
+    if ball:collides(paddle2) then
+        -- deflect ball to the left
+        ball.dx = -ball.dx
+    end
+
+    if ball.y <= 0 then
+        ball.dy = -ball.dy
+        ball.y = 0
+    end
+
+    if ball.y >= VIRTUAL_HEIGHT - 4 then
+        ball.dy = -ball.dy
+        ball.y = VIRTUAL_HEIGHT - 4
+    end
 
     paddle1:update(dt)
     paddle2:update(dt)
