@@ -17,6 +17,8 @@ function love.load()
 
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
+    love.window.setTitle('Pong')
+
     smallFont = love.graphics.newFont('font.TTF', 8)
     scoreFont = love.graphics.newFont('font.TTF', 32)
 
@@ -44,25 +46,55 @@ end
 
 function love.update(dt)
 
-    if ball:collides(paddle1) then
-        -- deflect ball to the right
-        ball.dx = -ball.dx
+    if gameState == 'play' then
+
+        if ball.x <= 0 then
+            player2Score = player2Score + 1
+            ball:reset()
+            gameState = 'start'
+        end
+
+        if ball.x >= VIRTUAL_WIDTH - 4 then
+            player1Score = player1Score + 1
+            ball:reset()
+            gameState = 'start'
+        end
+
+        if ball:collides(paddle1) then
+            ball.dx = -ball.dx * 1.03
+            ball.x = paddle1.x + 5
+
+            if ball.dy < 0 then
+                ball.dy = -math.random(10, 150)
+            else
+                ball.dy = math.random(10, 150)
+            end
+        end
+
+        if ball:collides(paddle2) then
+            ball.dx = -ball.dx * 1.03
+            ball.x = paddle2.x - 4
+
+            if ball.dy < 0 then
+                ball.dy = -math.random(10, 150)
+            else
+                ball.dy = math.random(10, 150)
+            end
+        end
+
+        if ball.y <= 0 then
+            ball.y = 0
+            ball.dy = -ball.dy
+
+        end
+
+        if ball.y >= VIRTUAL_HEIGHT - 4 then
+            ball.y = VIRTUAL_HEIGHT - 4
+            ball.dy = -ball.dy
+        end
     end
 
-    if ball:collides(paddle2) then
-        -- deflect ball to the left
-        ball.dx = -ball.dx
-    end
 
-    if ball.y <= 0 then
-        ball.dy = -ball.dy
-        ball.y = 0
-    end
-
-    if ball.y >= VIRTUAL_HEIGHT - 4 then
-        ball.dy = -ball.dy
-        ball.y = VIRTUAL_HEIGHT - 4
-    end
 
     paddle1:update(dt)
     paddle2:update(dt)
@@ -95,9 +127,6 @@ function love.keypressed(key)
     elseif key == 'enter' or key == 'return' then    
         if gameState == 'start' then
             gameState = 'play'
-        elseif gameState == 'play' then
-            gameState = 'start'    
-            ball:reset()
         end
     end   
 end
@@ -114,11 +143,6 @@ function love.draw()
     paddle2:render()
 
     love.graphics.setFont(smallFont)
-    if gameState == 'start' then
-        love.graphics.printf("Hello Start State!", 0, 20, VIRTUAL_WIDTH, 'center')
-    elseif gameState == 'play' then
-        love.graphics.printf("Hello Play State!", 0, 20, VIRTUAL_WIDTH, 'center')
-    end
     
     love.graphics.setFont(scoreFont)
     love.graphics.print(player1Score, VIRTUAL_WIDTH / 2 - 50, VIRTUAL_HEIGHT / 3)
