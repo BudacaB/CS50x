@@ -1,5 +1,7 @@
 ## Data Structures
 
+https://cs50.harvard.edu/x/2021/notes/5/ 
+
 ```
 int main(void)
 {

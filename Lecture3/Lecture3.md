@@ -1,5 +1,7 @@
 ## Algorithms
 
+https://cs50.harvard.edu/x/2021/notes/3/ 
+
 2 factors - correctness & design (is it efficient?)
 
 ### Searching
